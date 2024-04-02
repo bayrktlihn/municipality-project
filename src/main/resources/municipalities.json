@@ -1,0 +1,53 @@
+[
+  {
+    "country": "Türkiye",
+    "provinces" : [
+      {
+        "province": "Trabzon",
+        "metropolitan": true,
+        "districts": [
+          {
+            "district": "Ortahisar",
+            "neighbourhoods" : [
+              "1 Nolu Beşirli", "1 Nolu Bostancı", "1 Nolu Erdoğdu", "2 Nolu Beşirli", "2 Nolu Bostancı", "2 Nolu Erdoğdu", "3 Nolu Erdoğdu", "Ağıllı", "Akkaya", "Akoluk", "Aktoprak", "Akyazı", "Aydınlıkevler", "Ayvalı", "Bahçecik", "Bengisu", "Beştaş", "Boztepe", "Bulak", "Çağlayan", "Çamoba", "Çarşı", "Çilekli", "Çimenli", "Çömlekçi", "Çukurçayır", "Cumhuriyet", "Değirmendere", "Doğançay", "Dolaylı", "Düzyurt", "Esentepe", "Esenyurt", "Fatih", "Fatih Sultan", "Gazipaşa", "Geçit", "Gölçayır", "Gözalan", "Gülbaharhatun", "Gündoğdu", "Gürbulak", "Hızırbey", "İncesu", "İnönü", "İskenderpaşa", "Kalkınma", "Kamışlı", "Kanuni", "Karakaya", "Karlık", "Karşıyaka", "Kavala", "Kaymaklı", "Kemerkaya", "Kireçhane", "Konaklar", "Kozluca", "Kurtuluş", "Kutlugün", "Okçular", "Ortahisar", "Özbirlik", "Pazarkapı", "Pelitli", "Pınaraltı", "Sanayi", "Sayvan", "Sevimli", "Soğuksu", "Subaşı", "Toklu", "Tosköy", "Uğurlu", "Üniversite", "Yalı", "Yalıncak", "Yenicuma", "Yeniköy", "Yenimahalle", "Yeşilbük", "Yeşilhisar", "Yeşilköy", "Yeşilova", "Yeşiltepe", "Yeşilvadi", "Yeşilyurt"
+            ]
+          } ,
+          {
+            "district": "Akçaabat",
+            "neighbourhoods" : [
+              "Acısu", "Adacık", "Ağaçlı", "Akçakale", "Akçaköy", "Akdamar", "Akören", "Akpınar", "Alsancak", "Ambarcık", "Arpacılı", "Aydınköy", "Benlitaş Baltacı", "Bozdoğan", "Çamlıca", "Çamlıdere", "Cevizli", "Cevizlik", "Çiçeklidüz", "Çilekli", "Çınarlık", "Çolaklı", "Çukurca", "Darıca", "Demirci", "Demirkapı", "Demirtaş", "Derecik", "Doğanköy", "Dörtyol", "Dürbinar", "Erikli", "Esentepe", "Eskiköy", "Fındıklı", "Fıstıklı", "Gümüşlü", "Helvacı", "Işıklar", "Kaleönü", "Karaçayır", "Karaman", "Karpınar", "Kavaklı", "Kayalar", "Kemaliye", "Kirazlık", "Koçlu", "Kuruçam", "Maden", "Mersin", "Meşeli", "Meydankaya", "Nefsipulathane", "Oğulkaya Yolbaşı", "Ortaalan", "Ortaköy", "Ortamahalle", "Osmanbaba", "Özakdamar", "Özdemirci", "Salacık", "Sarıca", "Sarıtaş", "Sertkaya", "Şinik", "Söğütlü", "Tatlısu", "Tütüncüler", "Uçarsu", "Uğurlu", "Yaylacık", "Yeniköy", "Yenimahalle", "Yeşiltepe", "Yeşilyurt", "Yıldızlı", "Zaferli"
+            ]
+          },
+          {
+            "district": "Çaykara",
+            "neighbourhoods": [
+              "Akdoğan", "Arpaözü", "Aşağıkumlu", "Ataköy", "Baltacılı", "Çambaşı", "Çamlıbel", "Çayıroba", "Demirkapı", "Demirli", "Derindere", "Eğridere", "Işıklı", "Kabataş", "Karaçam", "Kayran", "Köknar", "Koldere", "Köseli", "Maraşlı", "Şahinkaya", "Şekersu", "Soğanlı", "Taşkıran", "Taşlıgedik", "Taşören", "Ulucami", "Uzungöl", "Uzuntarla", "Yaylaönü", "Yeşilalan", "Yukarıkumlu"
+            ]
+          }
+        ]
+
+      },
+
+      {
+        "province": "Bayburt",
+        "districts": [
+          {
+            "district": "Aydıntepe",
+            "neighbourhoods" : [
+              "Akbulut", "Alaca", "Aşağıkırzı", "Başpınar", "Çatıksu", "Çayırköprü", "Çiğdemlik", "Dumlu", "Erikdibi", "Gümüşdamla", "Günbuldu", "İncili", "Kavlatan", "Kılıçkaya", "Pınargözü", "Şalcılar", "Sırataşlar", "Sorkunlu", "Suludere", "Yanoba", "Yapracık", "Yazlık", "Yukarıkırzı"
+            ]
+          },
+          {
+            "provinceCenter": true,
+            "district": "Merkez",
+            "neighbourhoods" : [
+              "Adabaşı", "Ağören", "Akçakuzu", "Akduran", "Aksaçlı", "Akşar", "Alapelit", "Alıçlık", "Ardıçgöze", "Armutlu", "Arslandede", "Aşağıçimağıl", "Aşağıkışlak", "Aşağıpınarlı", "Aydıncık", "Balca", "Balkaynak", "Ballıkaya", "Başçımağıl", "Bayırtepe", "Bayraktar", "Buğdaylı", "Çakırbağ", "Çalıdere", "Çamdere", "Çamlıkoz", "Çayırözü", "Çayıryolu", "Çerçi", "Çiğdemtepe", "Çorak", "Dağçatı", "Dağtarla", "Danişment", "Darıca", "Değirmencik", "Demirışık", "Demirkaş", "Dikmetaş", "Dövmekaya", "Erenli", "Gençosman", "Gez", "Gökçeli", "Gökler", "Gökpınar", "Göldere", "Göloba", "Güder", "Güllüce", "Gümüşsu", "Güneydere", "Güzelce", "Hacıoğlu", "Harmanözü", "Helva", "Heybetepe", "Iğdır", "Kabaçayır", "Karlıca", "Karşıgeçit", "Kavacık", "Kavakyanı", "Kemertaş", "Kıratlı", "Kırkpınar", "Kitre", "Koçbayır", "Konursu", "Kop", "Kopuz", "Kozluk", "Kurbanpınar", "Kurugüney", "Maden", "Manas", "Masat", "Mutlu", "Nişantaşı", "Örence", "Ortaçımağıl", "Oruçbeyli", "Ozansu", "Pamuktaş", "Pelitli", "Petekkaya", "Polatlı", "Rüştü", "Sakızlı", "Salkımsu", "Sancaktepe", "Saraycık", "Sarıhan", "Sarımeşe", "Seydiyakup", "Sığırcı", "Sırakayalar", "Soğukgöze", "Söğütlü", "Taht", "Taşburun", "Taşçılar", "Taşkesen", "Taşocağı", "Tepetarla", "Tomlacık", "Uğrak", "Uğurgeldi", "Uluçayır", "Üzengili", "Yanıkçam", "Yaylalar", "Yaylapınar", "Yazyurdu", "Yedigöze", "Yeniköy", "Yerlice", "Yeşilyurt", "Yolaltı", "Yoncalı", "Yukarıkışlak"
+            ]
+          }
+        ]
+      }
+
+    ]
+  }
+
+]
