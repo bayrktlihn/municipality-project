@@ -15,7 +15,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
 
 @Configuration
-@ComponentScan(basePackages = {"io.bayrktlihn.component", "io.bayrktlihn.config", "io.bayrktlihn.aspect", "io.bayrktlihn.repository"})
+@ComponentScan(basePackages = {"io.bayrktlihn.service","io.bayrktlihn.component", "io.bayrktlihn.config", "io.bayrktlihn.aspect", "io.bayrktlihn.repository"})
 //@Lazy
 //@ImportResource
 @PropertySource("classpath:application.properties")

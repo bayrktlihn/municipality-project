@@ -1,0 +1,7 @@
+
+©
+java:S1488$"hImmediately return this expression instead of assigning it to the temporary variable "interestRateImpl".(ÜûøÿÿÿÿJ$fc486ca5-759f-4541-81e9-3d8fbf9a760c
+Œ
+java:S12069"PThis class overrides "equals()" and should therefore also override "hashCode()".(ÜÑãJ$13c48597-16d6-4f97-be5a-63c40f0bec74
+–
+java:S6201:"ZReplace this instanceof check and cast with 'instanceof InterestRateImpl interestRateImpl'(ü»û¹J$c02a39da-a973-424b-9cfb-0e3089cb6bcc

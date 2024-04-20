@@ -1,0 +1,5 @@
+
+•
+java:S6204H"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(àéÚÚ8Å­Àï1J$72ff7580-b417-4983-9963-156cf016ae25
+„
+java:S1126D"AReplace this if-then-else statement by a single return statement.(†¹îô8Å­Àï1J$501b2d37-21de-4e94-86a6-1de5e1a497a7

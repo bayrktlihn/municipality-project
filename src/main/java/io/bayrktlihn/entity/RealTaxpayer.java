@@ -2,16 +2,7 @@ package io.bayrktlihn.entity;
 
 
 import io.bayrktlihn.enums.Gender;
-import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,10 +13,8 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @Entity
-//@Table(name = "real_taxpayer")
-@DiscriminatorValue(value = "REAL")
-public class RealTaxpayer
-        extends Taxpayer {
+@Table(name = "real_taxpayer")
+public class RealTaxpayer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,19 +35,4 @@ public class RealTaxpayer
     private String fatherName;
     private String motherName;
     private String identificationNumber;
-
-    @Override
-    public RealTaxpayer getTypedTaxpayer() {
-        return this;
-    }
-
-    @Override
-    public boolean isRealTaxpayer() {
-        return true;
-    }
-
-    @Override
-    public boolean isCorporateTaxpayer() {
-        return false;
-    }
 }

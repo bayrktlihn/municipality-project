@@ -8,16 +8,23 @@ import io.bayrktlihn.config.AppConfig;
 import io.bayrktlihn.dto.DistrictDto;
 import io.bayrktlihn.dto.MunicipalityDto;
 import io.bayrktlihn.dto.ProvinceDto;
+import io.bayrktlihn.entity.Accrual;
 import io.bayrktlihn.entity.Country;
 import io.bayrktlihn.entity.District;
 import io.bayrktlihn.entity.Municipality;
 import io.bayrktlihn.entity.Neighbourhood;
 import io.bayrktlihn.entity.Province;
+import io.bayrktlihn.entity.RealTaxpayer;
+import io.bayrktlihn.entity.Taxpayer;
+import io.bayrktlihn.enums.Gender;
 import io.bayrktlihn.repository.CountryRepository;
 import io.bayrktlihn.repository.DistrictRepository;
 import io.bayrktlihn.repository.MunicipalityRepository;
 import io.bayrktlihn.repository.NeighbourhoodRepository;
 import io.bayrktlihn.repository.ProvinceRepository;
+import io.bayrktlihn.repository.TaxpayerRepository;
+import io.bayrktlihn.service.AccrualService;
+import io.bayrktlihn.util.date.Dates;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.expression.Expression;
@@ -27,7 +34,9 @@ import org.springframework.expression.spel.standard.SpelExpressionParser;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 public class Main {
@@ -39,7 +48,19 @@ public class Main {
 //            listOrderedInjections(applicationContext);
 //            listBeans(applicationContext);
 
-            initializeDb(applicationContext);
+//            initializeDb(applicationContext);
+//
+//            TaxpayerRepository taxpayerRepository = applicationContext.getBean(TaxpayerRepository.class);
+//            List<Taxpayer> allRealTaxpayers = taxpayerRepository.findAllRealTaxpayers();
+
+
+            Accrual accrual = new Accrual();
+            accrual.setAmount(new BigDecimal("100"));
+            accrual.setPaymentDueDate(Dates.create(2021, 1, 1));
+
+            AccrualService bean = applicationContext.getBean(AccrualService.class);
+            BigDecimal bigDecimal = bean.calculateTotalAmount(accrual);
+            System.out.println(bigDecimal);
 
 
 //            MyComponent myComponent = applicationContext.getBean(MyComponent.class);
@@ -65,6 +86,7 @@ public class Main {
         CountryRepository countryRepository = applicationContext.getBean(CountryRepository.class);
         DistrictRepository districtRepository = applicationContext.getBean(DistrictRepository.class);
         NeighbourhoodRepository neighbourhoodRepository = applicationContext.getBean(NeighbourhoodRepository.class);
+        TaxpayerRepository taxpayerRepository = applicationContext.getBean(TaxpayerRepository.class);
 
 
         for (MunicipalityDto municipalityDto : municipalityDtos) {
@@ -80,38 +102,54 @@ public class Main {
                 province = provinceRepository.save(province);
 
 
-                Municipality metropolitanMunicipality = null;
+                Municipality metropolitanMunicipality;
                 if (provinceDto.isMetropolitan()) {
                     Municipality municipality = new Municipality();
-                    municipality.setName(provinceDto.getProvince()+ " Büyükşehir Belediyesi");
+                    municipality.setName(provinceDto.getProvince() + " Büyükşehir Belediyesi");
                     municipality.setMetropolitan(true);
                     municipality.setProvince(province);
                     municipality = municipalityRepository.save(municipality);
                     metropolitanMunicipality = municipality;
+                } else {
+                    metropolitanMunicipality = null;
                 }
 
+                Optional<DistrictDto> provinceCenterDistrict = provinceDto.getDistricts().stream().filter(item -> item.isProvinceCenter() && metropolitanMunicipality == null).findFirst();
 
-
-                for (DistrictDto districtDto : provinceDto.getDistricts()) {
+                Municipality provinceCeMunicipality = null;
+                if (provinceCenterDistrict.isPresent()) {
+                    District district = new District();
+                    district.setName(provinceCenterDistrict.get().getDistrict());
+                    district.setProvince(province);
+                    district = districtRepository.save(district);
 
                     Municipality municipality = new Municipality();
-
-                    municipality.setMetropolitan(true);
+                    municipality.setMetropolitan(false);
                     municipality.setProvince(province);
                     municipality.setMetropolitanMunicipality(metropolitanMunicipality);
+                    municipality.setDistrict(district);
+                    municipality.setName(provinceDto.getProvince() + " Belediyesi");
+                    municipality.setProvinceCenter(true);
+                    provinceCeMunicipality = municipalityRepository.save(municipality);
+                }
 
-                    if(districtDto.isProvinceCenter() && metropolitanMunicipality == null){
-                        municipality.setName(provinceDto.getProvince() + " Belediyesi");
-                    } else {
-                        municipality.setName(districtDto.getDistrict() + " Belediyesi");
-                    }
-
-                    municipality = municipalityRepository.save(municipality);
-
+                List<DistrictDto> notProvinceCenterDistricts = provinceDto.getDistricts().stream().filter(item -> !item.isProvinceCenter()).toList();
+                for (DistrictDto districtDto : notProvinceCenterDistricts) {
                     District district = new District();
                     district.setName(districtDto.getDistrict());
                     district.setProvince(province);
                     district = districtRepository.save(district);
+
+                    Municipality municipality = new Municipality();
+
+                    municipality.setMetropolitan(false);
+                    municipality.setProvince(province);
+                    municipality.setMetropolitanMunicipality(metropolitanMunicipality);
+                    municipality.setDistrict(district);
+                    municipality.setName(districtDto.getDistrict() + " Belediyesi");
+                    municipality.setProvinceCenterMunicipality(provinceCeMunicipality);
+                    municipality = municipalityRepository.save(municipality);
+
 
                     for (String neighbourhoodName : districtDto.getNeighbourhoods()) {
                         Neighbourhood neighbourhood = new Neighbourhood();
@@ -119,12 +157,30 @@ public class Main {
                         neighbourhood.setDistrict(district);
                         neighbourhood = neighbourhoodRepository.save(neighbourhood);
                     }
-
                 }
+
 
             }
 
         }
+
+
+        RealTaxpayer realTaxpayer = new RealTaxpayer();
+        realTaxpayer.setFirstName("kerim");
+        realTaxpayer.setLastName("yılmaz");
+        realTaxpayer.setGender(Gender.MAN);
+        realTaxpayer.setFatherName("ferhat");
+        realTaxpayer.setMotherName("yasemin");
+        realTaxpayer.setBirthDate(Dates.createStartOfDay(1996, 8, 20));
+        realTaxpayer.setIdentificationNumber("20108748475");
+
+        Taxpayer taxpayer = new Taxpayer();
+        taxpayer.setRegistrationNumber("20108748475");
+        taxpayer.setRealTaxpayer(realTaxpayer);
+
+        taxpayerRepository.save(taxpayer);
+
+
     }
 
     private static void listBeans(AnnotationConfigApplicationContext applicationContext) {

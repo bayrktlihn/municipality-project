@@ -1,0 +1,27 @@
+
+ã
+java:S6539*"ŸSplit this â€œMonster Classâ€ into smaller and more specialized ones to reduce its dependencies on other classes from 21 to the maximum authorized 20 or less.(àªÅö8˜Ï’¿ï1J$f6665021-0293-487f-8c49-4ecdf3c057d8
+¯
+java:S1130+"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(œû¿Ø8Ğ’¿ï1J$32ed87a8-fa17-418d-9d2f-0888e7c88cea
+ƒ	java:S125."<This block of commented-out lines of code should be removed.(Üæºûÿÿÿÿ8˜ÈÙ¾ï1J$0d09274b-cd07-4019-8f01-43cdc35765dd
+~	java:S1253"<This block of commented-out lines of code should be removed.(ñÔÆÛ8˜ÈÙ¾ï1J$5cbb1238-2222-4cac-bb6c-5b32a5b5a256
+m	java:S106?"+Replace this use of System.out by a logger.(ÅÔ™´8¡ÈÙ¾ï1J$f7ab5101-1e40-4cf4-95db-b76409830062
+~	java:S125B"<This block of commented-out lines of code should be removed.(½àŞ8˜ÈÙ¾ï1J$8c7e8665-ba29-4c73-81ce-8e32b37e9c80
+•
+java:S3776M"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(ñ‰Ë¿8™ÈÙ¾ï1J$9d99a50d-1831-408c-b3c6-a3addddebeb1
+‰
+java:S1854—"@Remove this useless assignment to local variable "municipality".(ÍÆÍÁÿÿÿÿÿ8šÈÙ¾ï1J$a37ee395-1b38-4265-bddc-5fc09947fc8e
+Š
+java:S1854"ARemove this useless assignment to local variable "neighbourhood".(Õ½íšøÿÿÿÿ8šÈÙ¾ï1J$0b589c5a-5707-4806-a5f7-c86c5478cd45
+m	java:S106Ä"+Replace this use of System.out by a logger.(°ö8¢ÈÙ¾ï1J$e330fc5f-6d2e-467f-aedc-e593de41a504
+n	java:S106Ë"+Replace this use of System.out by a logger.(ë²ù‹8”¬Ü¾ï1J$430d8baa-9216-4249-b40e-52b64147aa37
+t
+java:S1144M"1Remove this unused private "initializeDb" method.(ñ‰Ë¿8£ÈÙ¾ï1J$4bc73ee7-a499-4eea-ab49-3923dfdb0c79
+q
+java:S1144º".Remove this unused private "listBeans" method.(ÅÔ¼8£ÈÙ¾ï1J$b820d251-1858-4176-9402-2188ab9b299a
+ƒ
+java:S1144Á":Remove this unused private "listOrderedInjections" method.(Ö¨µ’ùÿÿÿÿ8£ÈÙ¾ï1J$e14b3aff-8a04-4f5f-88c8-168af909535d
+z
+java:S1144Ç"6Remove this unused private "expressionExample" method.(ú„Ø8£ÈÙ¾ï1J$3791281a-a551-4c4c-ada5-bc6f5ae1208d
+v
+java:S1144Î"2Remove this unused private "lookupExample" method.(ä‰ó8£ÈÙ¾ï1J$bdd25bd6-4050-4cea-bb9e-cd36882829e2

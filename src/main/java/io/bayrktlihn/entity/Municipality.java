@@ -39,7 +39,7 @@ public class Municipality implements Serializable {
 
     private String name;
 
-    private boolean metropolitan ;
+    private boolean metropolitan;
     private boolean provinceCenter;
     private boolean town;
 
@@ -47,7 +47,11 @@ public class Municipality implements Serializable {
     @JoinColumn(name = "metropolitan_municipality_id")
     private Municipality metropolitanMunicipality;
 
-    public boolean isDistrict(){
+    @ManyToOne
+    @JoinColumn(name = "province_center_municipality_id")
+    private Municipality provinceCenterMunicipality;
+
+    public boolean isDistrict() {
         return district != null;
     }
 
